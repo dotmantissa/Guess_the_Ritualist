@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Deployment version: 1.0.1
 
 import { useState } from "react";
 import WalletGate from "@/components/WalletGate";
