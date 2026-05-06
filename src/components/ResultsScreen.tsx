@@ -31,12 +31,6 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({ score, total, onRestart }
   });
 
   const handleReveal = () => {
-    if (CONTRACT_ADDRESS === "0x0000000000000000000000000000000000000000") {
-      // If not deployed yet, just show it for testing
-      setIsRevealed(true);
-      return;
-    }
-
     writeContract({
       address: CONTRACT_ADDRESS as `0x${string}`,
       abi: SCORE_REGISTRY_ABI,
