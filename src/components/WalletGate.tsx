@@ -80,18 +80,16 @@ const WalletGate: React.FC<WalletGateProps> = ({ onConnected }) => {
       {/* Wallets installed, not connected */}
       {!isConnected && connectors.length > 0 && (
         <div className="flex flex-col items-center gap-3 w-full max-w-xs">
-          {connectors
-            .filter((connector) => connector.name.toLowerCase().includes("metamask"))
-            .map((connector) => (
-              <button
-                key={connector.uid}
-                onClick={() => handleConnect(connector)}
-                disabled={isConnecting}
-                className="glow-effect w-full px-6 py-4 bg-[#40FFAF] hover:bg-[#52ffb7] text-black font-black rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(64,255,175,0.3)] uppercase italic tracking-tighter text-xl disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Connect {connector.name}
-              </button>
-            ))}
+          {connectors.map((connector) => (
+            <button
+              key={connector.uid}
+              onClick={() => handleConnect(connector)}
+              disabled={isConnecting}
+              className="glow-effect w-full px-6 py-4 bg-[#40FFAF] hover:bg-[#52ffb7] text-black font-black rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(64,255,175,0.3)] uppercase italic tracking-tighter text-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Connect {connector.name}
+            </button>
+          ))}
           
           {isConnecting && <p className="text-[#40FFAF] text-sm mt-2 animate-pulse">Waiting for approval...</p>}
           {connectError && (
