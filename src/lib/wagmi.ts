@@ -1,6 +1,6 @@
 import { defineChain } from "viem";
 import { createConfig, http } from "wagmi";
-import { injected } from "wagmi/connectors";
+import { injected } from "@wagmi/core";
 
 export const ritualChain = defineChain({
   id: 1979,
